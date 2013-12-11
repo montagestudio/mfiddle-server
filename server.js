@@ -30,6 +30,15 @@ function main(options) {
 
         return joey
             .cors(environment.domain, "*", "*")
+            .use(function(next) {
+                return function(request, response) {
+                    if (request.headers.origin === environment.domain) {
+                        return next(request, response);
+                    } else {
+                        return;
+                    }
+                }
+            })
             .route(function(route) {
                 route("gists/:id")
                 .method("GET")
