@@ -1,1 +1,7 @@
-node_modules
+.DS_Store
+.idea
+.vagrant
+/coverage
+/reports
+console.log
+npm-debug.log
