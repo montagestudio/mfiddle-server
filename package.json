@@ -1,6 +1,11 @@
 {
   "name": "mfiddle-server",
   "version": "0.0.1",
+  "scripts": {
+    "test": "istanbul test jasmine-node -- --junitreport spec && jshint --verbose .",
+    "start": "node server.js",
+    "update-dependencies": "rm -rf node_modules && npm install && npm dedupe && git add --update node_modules && git add node_modules"
+  },
   "dependencies": {
     "q": "~0.9.7",
     "q-io": "~1.10.6",
