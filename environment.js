@@ -6,9 +6,9 @@ function Env(options) {
     env.port = process.env.MFIDDLE_PORT || 2440;
 
     if(env.production) {
-
+        env.domain = "http://montagejs.github.io";
     } else {
-
+        env.domain = "http://localhost";
     }
 
     return env;

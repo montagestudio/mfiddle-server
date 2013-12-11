@@ -14,10 +14,6 @@ var commandOptions = {
         alias: "d",
         describe: "The directory to cache gists",
         default: __dirname + "/../gists"
-    },
-    "mfiddle-domain": {
-        describe: "Mfiddle domain, for CORS purposes",
-        default: "http://localhost"
     }
 };
 module.exports = main;
@@ -33,7 +29,7 @@ function main(options) {
     .then(function() {
 
         return joey
-            .cors(options["mfiddle-domain"], "*", "*")
+            .cors(environment.domain, "*", "*")
             .route(function(route) {
                 route("gists/:id")
                 .method("GET")
